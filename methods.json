@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-12",
+  "updated": "2026-09-13",
   "deposit": {
     "name": "Round Top",
     "county": "Hudspeth County, Texas",
@@ -12,12 +12,12 @@
       "name": "Dilute H2SO4 heap leach",
       "stage": "liberation",
       "fit_to_host": "high — yttrofluorite dissolves in dilute sulfuric at ambient T",
-      "recovery": "cited column/bucket: Y 61%, Dy 57.5% on 1/2\u2013in crush (US 9,890,441); many tests 42–49% Y+HREE",
+      "recovery": "cited column/bucket: Y 61%, Dy 57.5% on 1/2–in crush (US 9,890,441); many tests 42–49% Y+HREE; USAR slide: up to 70% REE in columns (split unpublished)",
       "reagents": "H2SO4 5–100 g/L tested; patent example ~8.3% v/v or 10 g/L bucket tests",
       "energy": "low (ambient); crush + pumping",
-      "waste": "acidic raffinate, residual F, U/Th reporting; gypsum if lime neutralize",
+      "waste": "acidic raffinate; F from yttrofluorite + cryolite/gearksutite/ralstonite; U/Th from soluble accessories; gypsum if lime neutralize",
       "scale": "the designed path for this mountain; heap is how you treat a billion-ton low-grade rhyolite",
-      "cost": "order-of-magnitude: heap opex dominated by acid + neutralize; unknown without current PEA",
+      "cost": "order-of-magnitude: heap opex dominated by acid + neutralize + F/U/Th bleed; unknown without current PEA",
       "verdict": "baseline leach. Not a separator."
     },
     {
@@ -34,9 +34,21 @@
       "verdict": "use if SX train wants chloride."
     },
     {
+      "id": "pls-f-th-u",
+      "name": "PLS cleanup (F, Th, U)",
+      "stage": "liquor",
+      "fit_to_host": "required after yttrofluorite sulfate heap; F is structural in the Dy host, not an optional impurity",
+      "recovery": "US 9,890,441 claims two-stage contact can pull U/Th with little REE loss — cited as claim, not a published plant balance. F-cut recovery of Dy on this PLS: unknown",
+      "reagents": "options (not Round Top-proven): lime/gypsum sink, CaF2 precipitation, Al3+ to complex F, IX or SX for U/Th. Acid make-up after neutralize",
+      "energy": "low-moderate (pumps, pH control); not a roast",
+      "waste": "fluoride solids or bleed; U/Th concentrate (radiological); gypsum if Ca added to sulfate liquor",
+      "scale": "must sit in front of any mountain-scale SX; analog F circuits exist in phosphate/HF plants, not proven on this rhyolite PLS",
+      "cost": "unknown $/kg Dy. Experiment: closed-circuit column PLS assays for F, U, Th, Al, Ca vs Dy loss across the cut",
+      "verdict": "gate between heap and Dy/Y split. Skipping it contaminates extractant and product."
+    },
+    {
       "id": "sx-pc88a",
-      "name": "Solvent extraction PC88A (EHEHPA)
-",
+      "name": "Solvent extraction PC88A (EHEHPA)",
       "stage": "separation",
       "fit_to_host": "after leach; fights Y (adjacent, abundant at Round Top)",
       "recovery": "cited on Y-concentrate (not Round Top PLS): ~93% Dy at ~97% Dy2O3 (Thakur 2000)",
@@ -103,7 +115,7 @@
       "id": "usar-wheatridge",
       "name": "USAR Wheat Ridge flowsheet (opaque)",
       "stage": "integrated",
-      "fit_to_host": "they produced 99.1% Dy2O3 from Round Top ore (Jan 2025, third-party ISO 17025)",
+      "fit_to_host": "they produced 99.1% Dy2O3 from Round Top ore (Jan 2025, third-party ISO 17025); 2025 slide: SX pilot separated U, Th, Hf, Zr, HREEs",
       "recovery": "not published as a plant figure",
       "reagents": "proprietary",
       "energy": "unknown",
