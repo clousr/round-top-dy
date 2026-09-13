@@ -9,7 +9,13 @@
 - UTEP open thesis / related porosity paper — up to 90% YHREE in lab leach at 1/2-in crush. https://scholarworks.utep.edu/cgi/viewcontent.cgi?article=3880&context=open_etd
 - MINING.com 2025-01-28 — USAR 99.1% Dy2O3 sample from Round Top ore, Wheat Ridge CO. https://www.mining.com/usa-rare-earth-produces-dysprosium-oxide-at-texas-round-top-mine/
 - USAR Nov 2025 investor presentation — up to 70% REE column extraction; SX pilot U/Th/Hf/Zr/HREE split (no flowsheet recipe). https://cdn.prod.website-files.com/6778240fbac05d2a404af1c0/6913911c62a7c7d74ad9928a_USAR%20-%20Investor%20Presentation_Nov2025.pdf
-- Thakur 2000, Solvent Extraction and Ion Exchange — Dy/Y split with D2EHPA and PC88A (~97% Dy2O3, ~93% recovery in that Y-concentrate system).
+- USAR 2025 Form 10-K / 2026 SEC exhibit — five SX circuits at Wheat Ridge targeting Dy, Tb, Y, Gd plus Hf/Zr; demo 2,000–4,000 h. https://www.sec.gov/Archives/edgar/data/1970622/000121390026047162/ea0287130-03.pdf
+- Thakur 2000, Solvent Extraction and Ion Exchange 18, 853–875 — Dy/Y split with D2EHPA and PC88A from monazite Y-concentrate (~97% Dy2O3 / ~93% Dy recovery; ~93% Y2O3 / ~95% Y recovery). https://www.tandfonline.com/doi/abs/10.1080/07366290008934711
+- Mishra et al. 2000, Hydrometallurgy 56 — PC88A on a later Dy-rich monazite cut. https://www.sciencedirect.com/science/article/abs/pii/S0304386X00000645
+- Mohammadi, Forsberg et al. 2015, Hydrometallurgy 156 — D2EHPA / EHEHPA / mix for Nd, Dy, Y from HCl. https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-174945
+- Krishnamurthy / Gupta review (open NML reprint) — D2EHPA vs PC88A strength and strip acidity; large stage counts on monazite chloride trains. https://eprints.nmlindia.org/9390/1/63..1-s2.0-S0304386X16300603-main.pdf
+- INL/OSTI mid–HREE mixer-settler PC88A vs Cyanex 572 (~30-stage circuit). https://www.osti.gov/servlets/purl/1363891
+- Ahn et al. 2017 J. Korean Inst. Resour. Recycl. — PC88A HREE extraction; tabulated β(Dy/Y) ~3.53. https://www.koreascience.or.kr/article/JAKO201725650932404.pdf
 - Batchu et al. 2020 J. Mol. Liq. — PC88A vs Cyanex 572 for Dy(III).
 - Padhan & Sarangi / related organophosphorus SX reviews — D2EHPA > PC88A > Cyanex 272 extractant strength.
 - CN117025955B — Al2(SO4)3 + H2SO4 leach analog: Al complexes F, later cryolite (not Round Top heap conditions). https://patents.google.com/patent/CN117025955B/en
