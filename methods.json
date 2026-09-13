@@ -1,0 +1,116 @@
+{
+  "updated": "2026-09-12",
+  "deposit": {
+    "name": "Round Top",
+    "county": "Hudspeth County, Texas",
+    "host": "yttrofluorite in peraluminous rhyolite",
+    "notes": "Low-grade, HREE-rich, acid-soluble fluorite; 90-95% inert quartz+feldspar."
+  },
+  "methods": [
+    {
+      "id": "h2so4-heap",
+      "name": "Dilute H2SO4 heap leach",
+      "stage": "liberation",
+      "fit_to_host": "high — yttrofluorite dissolves in dilute sulfuric at ambient T",
+      "recovery": "cited column/bucket: Y 61%, Dy 57.5% on 1/2\u2013in crush (US 9,890,441); many tests 42–49% Y+HREE",
+      "reagents": "H2SO4 5–100 g/L tested; patent example ~8.3% v/v or 10 g/L bucket tests",
+      "energy": "low (ambient); crush + pumping",
+      "waste": "acidic raffinate, residual F, U/Th reporting; gypsum if lime neutralize",
+      "scale": "the designed path for this mountain; heap is how you treat a billion-ton low-grade rhyolite",
+      "cost": "order-of-magnitude: heap opex dominated by acid + neutralize; unknown without current PEA",
+      "verdict": "baseline leach. Not a separator."
+    },
+    {
+      "id": "hcl-leach",
+      "name": "Dilute HCl leach",
+      "stage": "liberation",
+      "fit_to_host": "medium-high — patent allows HCl; chloride liquor feeds classic SX",
+      "recovery": "less Round Top column data than sulfate",
+      "reagents": "HCl; more expensive than H2SO4, easier SX",
+      "energy": "low-moderate",
+      "waste": "chloride brine, residual F",
+      "scale": "tank or heap; chloride heap is messier than sulfate",
+      "cost": "likely higher reagent than sulfate heap",
+      "verdict": "use if SX train wants chloride."
+    },
+    {
+      "id": "sx-pc88a",
+      "name": "Solvent extraction PC88A (EHEHPA)
+",
+      "stage": "separation",
+      "fit_to_host": "after leach; fights Y (adjacent, abundant at Round Top)",
+      "recovery": "cited on Y-concentrate (not Round Top PLS): ~93% Dy at ~97% Dy2O3 (Thakur 2000)",
+      "reagents": "PC88A in kerosene; acid for strip; saponification common",
+      "energy": "mixer-settler pumping; many stages for Dy/Y",
+      "waste": "organics, Na/NH4 if saponified",
+      "scale": "industrial standard outside China-equivalent plants",
+      "cost": "capex in stages + inventory; opex extractant + acid",
+      "verdict": "workhorse Dy/Y split. Must be sized for Round Top Y:Dy."
+    },
+    {
+      "id": "sx-d2ehpa",
+      "name": "Solvent extraction D2EHPA",
+      "stage": "separation",
+      "fit_to_host": "stronger extractant than PC88A; less selective among HREE",
+      "recovery": "high extraction, harder strip; used in classic REE fractionation",
+      "reagents": "D2EHPA + kerosene; stronger acid to strip Dy",
+      "energy": "similar SX train",
+      "waste": "organics",
+      "scale": "proven",
+      "cost": "similar SX; more stages or harsher strip",
+      "verdict": "good for bulk HREE load; PC88A often cleaner for Dy polish."
+    },
+    {
+      "id": "sx-cyanex",
+      "name": "Solvent extraction Cyanex 272 / 572",
+      "stage": "separation",
+      "fit_to_host": "weaker than PC88A; Batchu 2020: PC88A extracts Dy better; Cyanex 572 better mid/HREE vs Dy selectivity in some cuts",
+      "recovery": "system-specific",
+      "reagents": "Cyanex + diluent",
+      "energy": "SX train",
+      "waste": "organics",
+      "scale": "industrial reagents exist",
+      "cost": "reagent $ often higher than D2EHPA",
+      "verdict": "candidate for a Dy/Tb or Dy/Y polish step, not the leach."
+    },
+    {
+      "id": "ix-ln",
+      "name": "Extraction chromatography / LN resin",
+      "stage": "separation",
+      "fit_to_host": "lab-to-pilot polish of Dy after bulk SX or from dilute PLS",
+      "recovery": "high purity possible; capacity low vs SX",
+      "reagents": "impregnated organophosphorus resin; mineral acid eluent",
+      "energy": "low",
+      "waste": "spent resin, acid",
+      "scale": "poor as sole plant for mountain-scale PLS; good for oxide polish",
+      "cost": "resin $ high per kg Dy if used as primary split",
+      "verdict": "finish step, not heap replacement."
+    },
+    {
+      "id": "oxalate",
+      "name": "Oxalate precipitation",
+      "stage": "product",
+      "fit_to_host": "after separation; not selective among REE",
+      "recovery": "high if PLS is already Dy-rich",
+      "reagents": "oxalic acid; calcine to oxide",
+      "energy": "calcination",
+      "waste": "oxalate liquor",
+      "scale": "standard finish",
+      "cost": "small vs leach+SX",
+      "verdict": "how you make Dy2O3 after you already won the split."
+    },
+    {
+      "id": "usar-wheatridge",
+      "name": "USAR Wheat Ridge flowsheet (opaque)",
+      "stage": "integrated",
+      "fit_to_host": "they produced 99.1% Dy2O3 from Round Top ore (Jan 2025, third-party ISO 17025)",
+      "recovery": "not published as a plant figure",
+      "reagents": "proprietary",
+      "energy": "unknown",
+      "waste": "unknown",
+      "scale": "demo / R&D; magnet plant is Stillwater OK, mine is Texas",
+      "cost": "unknown",
+      "verdict": "existence proof that Round Top ore can yield magnet-grade Dy oxide. Not a public recipe."
+    }
+  ]
+}
