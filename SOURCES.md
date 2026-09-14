@@ -19,3 +19,11 @@
 - Batchu et al. 2020 J. Mol. Liq. — PC88A vs Cyanex 572 for Dy(III).
 - Padhan & Sarangi / related organophosphorus SX reviews — D2EHPA > PC88A > Cyanex 272 extractant strength.
 - CN117025955B — Al2(SO4)3 + H2SO4 leach analog: Al complexes F, later cryolite (not Round Top heap conditions). https://patents.google.com/patent/CN117025955B/en
+- CN114836638A — ionic-liquid hollow-fiber SLM for HREE ([N1888][P507]/[P204]); example β among later HREE including Y. https://patents.google.com/patent/CN114836638A/en
+- Chen et al. 2023, Sep. Purif. Technol. 320, 124132 — HFRLM [N1888][CA12] Y mole fraction 70.9% to >98.4% (abstract). https://www.sciencedirect.com/science/article/abs/pii/S1383586623010407
+- Othman et al. 2022, Ind. Eng. Chem. Res. 61, 18475 — 8 m2 HFSLM pilot, D2EHPA/kerosene, apatite-style synthetic REE. https://pubs.acs.org/iecred/article/61/50/18475/919098/Separation-of-Rare-Earth-Elements-Using-Supported
+- Cyphos IL 104 PIM, Membranes 2024 14:182 — Y vs La/Nd/Sm in chloride. https://www.mdpi.com/2077-0375/14/9/182
+- Taamallah & Hamdaoui, Separations 2025 12:228 — ELM Cyanex 272 + D2EHPA for 100 mg/L Dy. https://www.mdpi.com/2297-8739/12/9/228
+- NSF 26-510 SBIR/STTR — Phase I up to $305k; deadlines 27 Jul 2026 (passed), 4 Nov 2026, then March/July cadence. https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation
+- Scrapmonster 24 Aug 2026 — Dy2O3 EXW China $214.27/kg, FOB China $257.57/kg. https://www.scrapmonster.com/metal-prices/rare-earth/dysprosium/927
+- Fastmarkets / MINING.com 10 Sep 2026 writeup — Europe Dy2O3 $1,250–$1,675/kg Rotterdam vs $270–$330/kg FOB China. Not a Round Top offtake.
