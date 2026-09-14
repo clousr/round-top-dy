@@ -1,0 +1,112 @@
+{
+  "updated": "2026-09-13",
+  "title": "Small-team path",
+  "disclaimer": "A two-person shop cannot lease Round Top or pour a 20,000 tpd heap. This card is the other path: one novel unit operation, government money sized for a bench, then a skid, then kilograms a customer will sign for. Not a mine NPV. Award sizes are class, not a promise a window is open tomorrow. Check SBIR.gov before writing a proposal.",
+  "rule": "Novel processing, government funded, two people hire and build, verify kilograms, then expand. Never the mountain.",
+  "review_hooks": [
+    "Next DOE or DLA SBIR/STTR topic that names Dy, HREE split, or magnet scrap?",
+    "Next CMI Accelerator scrap window (Topic 1A/1B class) and cost-share?",
+    "DLA Strategic Materials BAA SP8000-26-B-BAA0 still taking white papers?",
+    "Any public kg-scale result from TUSAAR, ReElement, Phoenix Tailings, or Wheat Ridge swarf that closes the wedge?"
+  ],
+  "wedges": [
+    {
+      "id": "dy-y-split",
+      "name": "Dy/Y split on Y-heavy sulfate",
+      "why": "Round Top liquor is a yttrium problem. PC88A only prefers Dy about 3–4×, so a mountain plant needs a long mixer-settler cascade. A better β, a membrane, an ionic-liquid extractant, or a polish resin that cuts stage count is a product.",
+      "metric": "β(Dy/Y) and stage count vs PC88A on a named Y-heavy sulfate feed, F still present",
+      "status": "open_gap"
+    },
+    {
+      "id": "f-u-th-cut",
+      "name": "F / U / Th cut that does not poison SX",
+      "why": "Comparison tab rank 2. Yttrofluorite leach puts fluoride and some radionuclides into the liquor. No public Round Top mass balance. If the cut leaves HREEs and does not wreck the organic, heap plants buy it as a service or a skid.",
+      "metric": "Dy loss across the cut; residual F, U, Th; extractant cycles after the cut",
+      "status": "open_gap"
+    },
+    {
+      "id": "swarf-skid",
+      "name": "Swarf → spec Dy2O3 on a modular skid",
+      "why": "Feed is already concentrated. USAR Wheat Ridge already made Dy oxide from Stillwater swarf. TUSAAR, Cyclic, Noveon, Ionic/USSM occupy parts of this pond. Win only on $/kg, cleaner radionuclides, or a skid a magnet plant will park on site.",
+      "metric": "kg Dy2O3 per day, impurity package a magnet alloy shop will read, $/kg vs buying oxide",
+      "status": "crowded"
+    }
+  ],
+  "do_not": [
+    "Pitch a second heap or a GLO lease on Round Top",
+    "Apply to CHIPS or the $67–134M demo-facility class",
+    "Paste the $575/kg Serra Verde Dy floor onto a two-person P/L",
+    "Call generic PC88A/D2EHPA novel",
+    "Hire a CEO before a chemist who has run settlers or columns"
+  ],
+  "ladder": [
+    {
+      "id": "claim",
+      "order": 0,
+      "name": "Claim",
+      "who": "2 founders",
+      "cash": "$10–30k own cash + rented hood",
+      "what": "LLC, IP at the company, one sentence metric, named surrogate feed (bought magnet swarf or synthetic Y-heavy sulfate + F). No USAR ore story.",
+      "gate": "Can you state the metric and the feed in one sentence?"
+    },
+    {
+      "id": "prove",
+      "order": 1,
+      "name": "Prove (Phase I)",
+      "who": "2 people, no full-time hire yet",
+      "cash": "NSF SBIR/STTR Phase I up to $305k / 6–18 mo; DoD/DLA Phase I class $100–250k / ~12 mo. No equity.",
+      "what": "6–12 months. 1–10 L mass balance. Third-party assay. Report β, F tolerance, U/Th rejection, extractant cycles.",
+      "gate": "Independent assay of product. No mass balance, no Phase II."
+    },
+    {
+      "id": "hire-build",
+      "order": 2,
+      "name": "Hire + build (Phase II)",
+      "who": "Founders + hydromet tech + permit/safety",
+      "cash": "NSF Phase II up to $1.25M; DLA Phase II class ~$1M / 18 mo; DOE Accelerator Topic 1 scrap Phase 1 ~$2M at ~20% cost share.",
+      "what": "Build one skid (columns, hollow-fiber, or a small SX battery). Not a pad. Run on someone else's feed.",
+      "gate": "Skid runs on named real feed (swarf PO, MREC sample), not a fantasy ore pile."
+    },
+    {
+      "id": "verify",
+      "order": 3,
+      "name": "Verify",
+      "who": "Same crew + third-party lab",
+      "cash": "Same Phase II pot. DoD TIA / DPA Title III class comes after kilograms exist.",
+      "what": "Kilograms of Dy2O3, not a slide. Named customer qualification letter (magnet alloy or oxide spec). Radiation/waste plan if the feed is dirty.",
+      "gate": "A PO, an MOU with kilograms, or a plant-gate trial. Samples are not verify."
+    },
+    {
+      "id": "expand",
+      "order": 4,
+      "name": "Expand",
+      "who": "8–15 people",
+      "cash": "Customer + Phase III / BAA Phase II / seed. Not CHIPS. DLA Strategic Materials BAA SP8000-26-B-BAA0 is a rolling white-paper path (cited through Jan 2029).",
+      "what": "Second skid, toll kg→t, or license the unit-op to whoever runs a heap or a magnet plant.",
+      "gate": "Only expand on contracted feed. Still not 20,000 tpd."
+    }
+  ],
+  "funding_class": [
+    { "name": "NSF SBIR/STTR (NSF 26-510 class)", "phase1": "$305k / 6–18 mo", "phase2": "$1.25M", "tag": "cited class", "note": "Project Pitch first. No equity. Recurring solicitation, not a one-shot FOA." },
+    { "name": "DoD/DLA REE-separation SBIR",
+      "phase1": "$100–250k / ~12 mo",
+      "phase2": "~$1M / 18 mo",
+      "tag": "cited class",
+      "note": "DLA26BZ02-NV002 closed 24 Jun 2026. Use as template; next cycle repeats the topic shape. TRL 3–6, ITAR/EAR." },
+    { "name": "DOE CMI Accelerator Topic 1A/1B scrap",
+      "phase1": "~$2M, ~20% cost share",
+      "phase2": "up to ~$8M, ~50% cost share",
+      "tag": "cited class",
+      "note": "Hire+build money. 2026 window timed out — watch the next CMI drop. Not garage-scale." },
+    { "name": "DLA Strategic Materials BAA SP8000-26-B-BAA0",
+      "phase1": "white paper → ≤ SAT",
+      "phase2": "up to $10M / 3 yr",
+      "tag": "cited",
+      "note": "Rolling 30 Jan 2026–30 Jan 2029. Covers NdFeB recycle and REE recovery. Confirm still open before a paper." }
+  ],
+  "sources": [
+    "https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology/nsf26-510/solicitation",
+    "https://www.sbir.gov",
+    "https://www.energy.gov/cmei/ammto/critical-minerals-and-materials-accelerator-0"
+  ]
+}
