@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-13",
+  "updated": "2026-09-14",
   "deposit": {
     "name": "Round Top",
     "county": "Hudspeth County, Texas",
@@ -84,6 +84,19 @@
       "scale": "industrial reagents exist",
       "cost": "reagent $ often higher than D2EHPA",
       "verdict": "candidate for a Dy/Tb or Dy/Y polish step, not the leach."
+    },
+    {
+      "id": "membrane-il",
+      "name": "Supported liquid membrane / ionic-liquid PIM",
+      "stage": "separation",
+      "fit_to_host": "after F/U/Th-cut sulfate PLS; literature is chloride/nitrate or Y-rich HREE synthetics, not yttrofluorite heap liquor. Carboxylate ILs often prefer Y, which can be a Y-cutter rather than a Dy-first grab",
+      "recovery": "cited analogs only: Chen 2023 [N1888][CA12] HFRLM raised Y mole fraction 70.9% → >98.4%; CN114836638A example β(Yb/Y)~3.33. Dy/Y flux and recovery on Round Top sulfate+F: unknown",
+      "reagents": "IL or organophosphorus carrier in hollow-fiber / PIM / ELM; acid or water strip depending on IL. Module replacement when pores dump carrier",
+      "energy": "pumping through fibers; extract+strip in one module vs a mixer-settler cascade. Not a roast",
+      "waste": "spent modules; leaked IL/organic; F attack on pores is unmeasured here",
+      "scale": "8 m² HFSLM pilots exist (Othman 2022 apatite analog). Not a replacement for a mountain heap. Candidate stage-count cutter or two-person skid",
+      "cost": "unknown $/kg Dy. Capex is modules + IL inventory; opex is flux collapse and replacement. Do not invent a plant number",
+      "verdict": "research wedge to cut stages. Not a heap. Not Wheat Ridge’s unpublished SX hall."
     },
     {
       "id": "ix-ln",
