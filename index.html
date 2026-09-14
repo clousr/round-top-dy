@@ -36,7 +36,7 @@
 <nav>
   <button class="tab on" data-tab="compare" type="button">Comparison</button>
   <button class="tab" data-tab="pl" type="button">Business plan / P/L</button>
-  <button class="tab" data-tab="explain" type="button">12th-grade explain</button>
+  <button class="tab" data-tab="explain" type="button">Simplified explanation</button>
 </nav>
 <section id="compare" class="panel on">
   <p class="note">Solutions are ranked by host-fit, published evidence, and whether the step can stand alone as a Dy business. Unit operations do not sell oxide by themselves.</p>
@@ -79,7 +79,7 @@
   <div class="card" id="grant-list"></div>
 </section>
 <section id="explain" class="panel">
-  <p class="note">Plain-language notes for a high-school senior. No fake plant balances.</p>
+  <p class="note">Simplified explanations of each method. No fake plant balances.</p>
   <div id="explain-list"></div>
 </section>
 <p class="sub" style="margin-top:1.4rem">Source: <a href="https://github.com/clousr/round-top-dy">github.com/clousr/round-top-dy</a></p>
@@ -159,7 +159,7 @@ Promise.all([
   document.getElementById("updated").textContent="updated "+d.updated+" \u00b7 "+d.deposit.host;
   document.getElementById("rows").innerHTML=d.methods.slice().sort((a,b)=>(META[a.id]?.rank||99)-(META[b.id]?.rank||99)).map(m=>{
     const meta=META[m.id]||{rank:"—",pl:m.cost||"unknown"};
-    return "<tr><td class=\"rank\">"+meta.rank+"</td><th>"+m.name+"</th><td>"+m.stage+"</td><td>"+m.fit_to_host+"</td><td>"+m.recovery+"</td><td>"+meta.pl+"</td><td><a class=\"explain-link\" href=\"#explain-"+m.id+"\" data-id=\""+m.id+"\">12th-grade</a></td><td>"+m.reagents+"</td><td>"+m.scale+"</td><td>"+m.cost+"</td></tr>";
+    return "<tr><td class=\"rank\">"+meta.rank+"</td><th>"+m.name+"</th><td>"+m.stage+"</td><td>"+m.fit_to_host+"</td><td>"+m.recovery+"</td><td>"+meta.pl+"</td><td><a class=\"explain-link\" href=\"#explain-"+m.id+"\" data-id=\""+m.id+"\">simplified explanation</a></td><td>"+m.reagents+"</td><td>"+m.scale+"</td><td>"+m.cost+"</td></tr>";
   }).join("");
   document.querySelectorAll(".explain-link").forEach(a=>a.addEventListener("click",e=>{
     e.preventDefault();
