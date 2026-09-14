@@ -1,0 +1,82 @@
+{
+  "updated": "2026-09-13",
+  "disclaimer": "Theoretical P/L only. Not a feasibility study, not investment advice, not affiliated with USA Rare Earth or TMRC. Every dollar is tagged cited vs order-of-magnitude estimate. Dy-only revenue does not pay a whole-mine opex bill; co-products (Y, Tb, Li, Be, Al, Hf, Zr) carry the rest of the 2019 PEA.",
+  "assumptions": {
+    "throughput_tpd": { "value": 20000, "tag": "cited envelope", "note": "2019 PEA 7.3 Mt/yr = 20,000 tpd. USAR 2026 filings also discuss 40,000 tpd later." },
+    "grade_dy_gt": { "value": 31.8, "tag": "cited", "note": "2012/2014 PEA measured Dy ~31.8 g/t metal." },
+    "oxide_factor": { "value": 1.148, "tag": "cited", "note": "Dy to Dy2O3 conversion used in the PEA resource table." },
+    "heap_recovery": { "value": 0.575, "tag": "cited column", "note": "US 9,890,441 Dy 57.5% on 1/2-in crush. Not a plant guarantee." },
+    "sx_recovery": { "value": 0.90, "tag": "estimate", "note": "Order-of-magnitude split/polish recovery after a cleaned PLS. Round Top stage map unpublished." },
+    "life_years": { "value": 20, "tag": "cited envelope", "note": "2019 PEA 20-year mine life." },
+    "capex_m_usd": { "value": 350.4, "tag": "cited 2019 PEA", "note": "Initial capital $350.4M including process plant + 25% contingency. 2012 80ktpd study was ~$2B and is a different flowsheet." },
+    "opex_usd_per_t": { "value": 15.61, "tag": "cited 2019 PEA", "note": "Whole-plant opex per tonne mined, all products." },
+    "dy_opex_share": { "value": 0.135, "tag": "estimate", "note": "2019 PEA Dy revenue ~$53M of ~$395M basket (~13.5%). Used only to allocate plant opex to a Dy-only P/L." },
+    "price_china_usd_per_kg": { "value": 250, "tag": "cited band", "note": "Dy oxide China EXW ~$214/kg and FOB ~$258/kg in late Aug 2026; US Q2 2026 ~$248/kg. Default $250 mid." },
+    "price_western_usd_per_kg": { "value": 400, "tag": "estimate", "note": "Illustrative Western premium. $1,400/kg is a shortage-spike what-if, not a 2026 contract print." },
+    "grant_recognize_frac": { "value": 1.0, "tag": "model choice", "note": "Fraction of cash grants treated as capex offset in year-0. Loans are not income." }
+  },
+  "grants": [
+    { "id": "chips-direct", "name": "Commerce CHIPS direct funding (USAR LOI/award)", "usd_m": 277, "kind": "grant", "tag": "cited company/DOC", "applies_to": "integrated plant, not a single extractant" },
+    { "id": "chips-loan", "name": "Commerce CHIPS senior loan capacity", "usd_m": 1300, "kind": "loan", "tag": "cited company/DOC", "applies_to": "integrated plant; debt service, not P/L income" },
+    { "id": "texas-sif", "name": "Texas Semiconductor Innovation Fund", "usd_m": 14.2, "kind": "grant", "tag": "cited company", "applies_to": "Round Top heavy-REE project" },
+    { "id": "doe-cmi", "name": "DOE Critical Minerals Innovation (USAR selection)", "usd_m": 19.3, "kind": "grant", "tag": "cited company; subject to negotiation", "applies_to": "pilot separations" },
+    { "id": "pipe", "name": "Private PIPE (Jan 2026)", "usd_m": 1500, "kind": "equity", "tag": "cited company", "applies_to": "balance sheet; not a grant" }
+  ],
+  "flowsheets": [
+    {
+      "id": "sulfate-pc88a",
+      "name": "Sulfate heap → F/U/Th cut → PC88A → oxalate",
+      "rank": 1,
+      "methods": ["h2so4-heap", "pls-f-th-u", "sx-pc88a", "oxalate"],
+      "leach_recovery": 0.575,
+      "split_recovery": 0.90,
+      "capex_factor": 1.0,
+      "opex_factor": 1.0,
+      "note": "Baseline lithologic path. Recovery tagged cited column × estimated SX."
+    },
+    {
+      "id": "sulfate-d2ehpa-pc88a",
+      "name": "Sulfate heap → F/U/Th cut → D2EHPA bulk → PC88A polish → oxalate",
+      "rank": 2,
+      "methods": ["h2so4-heap", "pls-f-th-u", "sx-d2ehpa", "sx-pc88a", "oxalate"],
+      "leach_recovery": 0.575,
+      "split_recovery": 0.92,
+      "capex_factor": 1.15,
+      "opex_factor": 1.08,
+      "note": "Extra SX bank. Split recovery and factors are estimates."
+    },
+    {
+      "id": "hcl-sx",
+      "name": "HCl leach → chloride SX → oxalate",
+      "rank": 3,
+      "methods": ["hcl-leach", "sx-pc88a", "oxalate"],
+      "leach_recovery": 0.55,
+      "split_recovery": 0.90,
+      "capex_factor": 1.10,
+      "opex_factor": 1.20,
+      "note": "Less Round Top column data. Higher reagent estimate."
+    },
+    {
+      "id": "heap-resin",
+      "name": "Sulfate heap → bulk SX → LN resin polish → oxalate",
+      "rank": 4,
+      "methods": ["h2so4-heap", "pls-f-th-u", "sx-d2ehpa", "ix-ln", "oxalate"],
+      "leach_recovery": 0.575,
+      "split_recovery": 0.93,
+      "capex_factor": 1.25,
+      "opex_factor": 1.30,
+      "note": "Resin is a finish tool. High $/kg if asked to treat mountain PLS."
+    },
+    {
+      "id": "usar-integrated",
+      "name": "USAR Wheat Ridge / Texas integrated (opaque)",
+      "rank": 5,
+      "methods": ["usar-wheatridge"],
+      "leach_recovery": null,
+      "split_recovery": null,
+      "capex_factor": null,
+      "opex_factor": null,
+      "note": "Existence proof of 99.1% Dy2O3 from this ore. Public recipe and method-by-method $ unknown. Grants attach here as company-level, not as a unit-op P/L."
+    }
+  ]
+}
