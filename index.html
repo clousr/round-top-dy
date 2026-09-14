@@ -2,42 +2,188 @@
 <html lang="en">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Round Top Dy — method comparison</title>
+<title>Round Top Dy — methods, rank, P/L</title>
 <style>
   :root { font-family: ui-sans-serif, system-ui, sans-serif; color: #e8e4d9; background: #14120f; }
-  body { max-width: 1100px; margin: 2rem auto; padding: 0 1.2rem; line-height: 1.45; }
-  h1 { font-size: 1.6rem; font-weight: 600; }
-  .sub { color: #b7b09f; margin-bottom: 1.4rem; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-  th, td { border-bottom: 1px solid #2c291f; padding: 0.55rem 0.45rem; vertical-align: top; text-align: left; }
+  body { max-width: 1180px; margin: 2rem auto; padding: 0 1.2rem 3rem; line-height: 1.45; }
+  h1 { font-size: 1.55rem; font-weight: 600; margin: 0 0 .35rem; }
+  h2 { font-size: 1.12rem; font-weight: 600; margin: 1.4rem 0 .5rem; }
+  .sub, .note { color: #b7b09f; }
+  .note { font-size: .86rem; }
+  nav { display: flex; gap: .4rem; flex-wrap: wrap; margin: 1rem 0 1.2rem; }
+  nav button { background: #231f18; color: #e8e4d9; border: 1px solid #3a3428; border-radius: 999px; padding: .35rem .8rem; cursor: pointer; font: inherit; }
+  nav button.on { background: #3a3324; border-color: #e2c56a; color: #e2c56a; }
+  .panel { display: none; }
+  .panel.on { display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+  th, td { border-bottom: 1px solid #2c291f; padding: .5rem .4rem; vertical-align: top; text-align: left; }
   th { color: #c9c09a; font-weight: 600; }
-  .tag { font-size: 0.72rem; color: #8fd0a8; }
+  .tag { font-size: .72rem; color: #8fd0a8; }
+  .neg { color: #e08a7a; }
+  .pos { color: #8fd0a8; }
   a { color: #e2c56a; }
-  footer { margin-top: 2rem; color: #8a8474; font-size: 0.82rem; }
+  .rank { font-variant-numeric: tabular-nums; color: #e2c56a; font-weight: 600; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .6rem; margin: .8rem 0 1rem; }
+  label { display: block; font-size: .78rem; color: #b7b09f; }
+  input { width: 100%; background: #1c1914; color: #e8e4d9; border: 1px solid #3a3428; border-radius: 6px; padding: .35rem .45rem; font: inherit; }
+  .card { background: #1c1914; border: 1px solid #2c291f; border-radius: 10px; padding: .8rem 1rem; margin: .6rem 0; }
+  .explain { margin: 1.1rem 0 1.6rem; padding-top: .4rem; border-top: 1px solid #2c291f; }
+  footer { margin-top: 2rem; color: #8a8474; font-size: .82rem; }
 </style>
 <h1>Round Top dysprosium — hydromet options</h1>
-<p class="sub">Hudspeth County, Texas. Host: yttrofluorite in rhyolite. Compare recovery, reagents, energy, waste, scale, cost. Literature log, not a feasibility study.</p>
+<p class="sub">Hudspeth County, Texas. Host: yttrofluorite in rhyolite. Literature log plus a theoretical Dy-only P/L sketch. Not a feasibility study, not investment advice.</p>
 <p id="updated" class="tag"></p>
-<div style="overflow-x:auto">
-<table>
-  <thead>
-    <tr><th>Method</th><th>Stage</th><th>Fit to host</th><th>Recovery</th><th>Reagents</th><th>Energy</th><th>Waste</th><th>Scale</th><th>Cost</th></tr>
-  </thead>
-  <tbody id="rows"></tbody>
-</table>
-</div>
+<nav>
+  <button class="tab on" data-tab="compare" type="button">Comparison</button>
+  <button class="tab" data-tab="pl" type="button">Business plan / P/L</button>
+  <button class="tab" data-tab="explain" type="button">12th-grade explain</button>
+</nav>
+<section id="compare" class="panel on">
+  <p class="note">Solutions are ranked by host-fit, published evidence, and whether the step can stand alone as a Dy business. Unit operations do not sell oxide by themselves.</p>
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr><th>Rank</th><th>Method</th><th>Stage</th><th>Fit to host</th><th>Recovery</th><th>Theoretical P/L</th><th>Explain</th><th>Reagents</th><th>Scale</th><th>Cost</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</section>
+<section id="pl" class="panel">
+  <p class="note">Estimates <strong>dysprosium-oxide only</strong> cash. The 2019 PEA paid the mine with a whole basket (Y, Tb, Li, others). Grants cut capex; loans and equity are not profit. Knobs read <a href="economics.json">economics.json</a>.</p>
+  <div class="grid">
+    <label>Throughput tpd<input id="tpd" type="number" value="20000"></label>
+    <label>Dy grade g/t<input id="grade" type="number" step="0.1" value="31.8"></label>
+    <label>Heap recovery<input id="heap" type="number" step="0.01" value="0.575"></label>
+    <label>Split recovery<input id="split" type="number" step="0.01" value="0.90"></label>
+    <label>Dy2O3 price $/kg<input id="price" type="number" value="250"></label>
+    <label>Plant capex $M<input id="capex" type="number" step="0.1" value="350.4"></label>
+    <label>Opex $/t mined<input id="opex" type="number" step="0.01" value="15.61"></label>
+    <label>Dy opex share<input id="share" type="number" step="0.01" value="0.135"></label>
+    <label>Life years<input id="life" type="number" value="20"></label>
+    <label>Cash grants $M<input id="grants" type="number" step="0.1" value="310.5"></label>
+  </div>
+  <p class="note" id="pl-math"></p>
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr><th>Rank</th><th>Flowsheet</th><th>Dy2O3 t/yr</th><th>Revenue $M/yr</th><th>Dy-share opex $M/yr</th><th>Capex after grants $M</th><th>Theoretical P/L $M/yr</th><th>Note</th></tr>
+      </thead>
+      <tbody id="pl-rows"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>How the P/L is built</h2>
+    <p class="note">Contained Dy metal = tonnes processed × grade g/t ÷ 1000. Convert to Dy2O3 with 1.148. Multiply heap recovery (cited column 57.5%) and split recovery (estimate). Revenue = kg × price. Only the Dy share of 2019 PEA opex (~13.5%) is charged so a Dy-only page does not swallow the whole mine. Cash grants ($277M CHIPS + $14.2M Texas + $19.3M DOE CMI) offset capex. The $1.3B CHIPS loan and $1.5B PIPE are financing, not income.</p>
+  </div>
+  <div class="card" id="grant-list"></div>
+</section>
+<section id="explain" class="panel">
+  <p class="note">Plain-language notes for a high-school senior. No fake plant balances.</p>
+  <div id="explain-list"></div>
+</section>
 <p class="sub" style="margin-top:1.4rem">Source: <a href="https://github.com/clousr/round-top-dy">github.com/clousr/round-top-dy</a></p>
-<footer>Public research notes. Not affiliated with USA Rare Earth or TMRC. Numbers tagged in the repo as cited vs estimate.</footer>
+<footer>Public research notes. Not affiliated with USA Rare Earth or TMRC. Numbers tagged cited vs estimate. Theoretical P/L is a sketch, not a bankable model.</footer>
 <script>
-fetch("methods.json").then(r => r.json()).then(d => {
-  document.getElementById("updated").textContent = "updated " + d.updated + " · " + d.deposit.host;
-  document.getElementById("rows").innerHTML = d.methods.map(m =>
-    "<tr><th>" + m.name + "</th><td>" + m.stage + "</td><td>" + m.fit_to_host +
-    "</td><td>" + m.recovery + "</td><td>" + m.reagents + "</td><td>" + m.energy +
-    "</td><td>" + m.waste + "</td><td>" + m.scale + "</td><td>" + m.cost + "</td></tr>"
+const META = {
+  "h2so4-heap": {rank:1, pl:"Enabler, not a product. Needed for any mountain-scale Dy sale.", title:"Dilute sulfuric heap leach",
+    explain:"The rock at Round Top is mostly dead quartz and feldspar. Dysprosium hides in a fluoride mineral called yttrofluorite, which dissolves in weak sulfuric acid at room temperature. A heap leach is crushed rock stacked on a plastic liner with acid dripped through it — a giant coffee filter. That is the cheap way to treat a billion-ton mountain. Patent columns on this rock got about 57.5% of the Dy out on a 1/2-inch crush. The step does not separate Dy from yttrium. It only gets Dy into water, along with fluoride and some uranium and thorium."},
+  "hcl-leach": {rank:7, pl:"Optional reagent swap. Usually worse cash than sulfate heap.", title:"Dilute hydrochloric leach",
+    explain:"Same idea as the sulfuric heap, but with hydrochloric acid. Chloride liquid is what many old rare-earth solvent plants already know how to run. Hydrochloric acid costs more than sulfuric, and a chloride heap is messier to line and recycle. Use this only if the next plant really wants a chloride feed. There is less Round Top column data than for sulfate."},
+  "pls-f-th-u": {rank:2, pl:"Required cost center. Skipping it wrecks product and solvents.", title:"Cleaning the heap water (F, Th, U)",
+    explain:"When yttrofluorite dissolves, fluoride comes with it. Uranium and thorium leak out of other small minerals. If you skip this cleanup, those impurities wreck the expensive oils used later and can put radioactivity in the oxide. Think of it as the water filter between the pile and the factory. Nobody has published a full Round Top mass balance for this step, so the dollars stay unknown."},
+  "sx-pc88a": {rank:3, pl:"Workhorse splitter. Capex is tanks + organic inventory, not a mine NPV.", title:"Solvent extraction with PC88A",
+    explain:"Solvent extraction is two liquids that do not mix, like oil and vinegar. An extractant called PC88A prefers dysprosium a little more than yttrium. That preference is only about three to four times, so you need many mixer-settler tanks in a row. Round Top liquor has way more yttrium than dysprosium, so most of the oil seats get taken by yttrium. A famous paper reached about 97% pure Dy oxide from a different, already-concentrated feed, not from this heap. Do not treat that number as a Round Top plant result."},
+  "sx-d2ehpa": {rank:5, pl:"Bulk loader. Extra acid on strip; pair with a PC88A polish.", title:"Solvent extraction with D2EHPA",
+    explain:"D2EHPA is a stronger oil than PC88A. It grabs heavy rare earths harder, which is good for loading a bulk cut and bad when you want Dy back out — you need stronger acid to strip. Often used as the first grab, then PC88A as the fine split. Same mixer-settler factory, different chemical. No public Round Top stage balance."},
+  "sx-cyanex": {rank:8, pl:"Optional polish. Higher reagent $; not a heap replacement.", title:"Solvent extraction with Cyanex 272 / 572",
+    explain:"Cyanex 272 and 572 are cousins of PC88A, usually weaker. Sometimes they separate mid-weight rare earths from Dy a bit better; they usually cost more. Candidate for a polish step after a bulk cut. Not a replacement for the heap and not a whole factory."},
+  "ix-ln": {rank:9, pl:"Finish tool. High $/kg if asked to treat mountain-scale water.", title:"Resin / extraction chromatography",
+    explain:"Instead of big oil tanks, you pour the liquid through plastic beads soaked in a similar extractant (LN resin). You can get very pure Dy. The beads do not hold much metal, so this is a terrible way to treat a whole mountain of dilute heap water and a good last-mile polish after the big oil factory has already concentrated the Dy."},
+  "oxalate": {rank:6, pl:"Cheap last step. Zero revenue if the split failed upstream.", title:"Oxalate precipitation",
+    explain:"Once the liquid is already Dy-rich, you add oxalic acid. The Dy falls out as a white solid. You bake that solid and get Dy oxide powder you can sell. This does not separate Dy from its neighbors. It is the last make-the-powder step, cheap compared with the heap and the oil factory."},
+  "usar-wheatridge": {rank:4, pl:"Existence proof. Company-level grants attach here; recipe unpublished.", title:"USAR Wheat Ridge flowsheet",
+    explain:"USA Rare Earth already made a 99.1% Dy2O3 sample from Round Top ore in Colorado in January 2025. That proves the mountain can yield magnet-grade oxide. Public filings mention five solvent-extraction circuits and more than 500 mixer-settlers. The exact recipe is secret, so this row cannot be costed method-by-method. Treat it as an existence proof, not a cookbook."}
+};
+function show(id) {
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("on", p.id === id));
+  document.querySelectorAll(".tab").forEach(b => b.classList.toggle("on", b.getAttribute("data-tab") === id));
+  if (id === "explain" && location.hash) {
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+  const id = b.getAttribute("data-tab");
+  history.replaceState(null, "", id === "compare" ? location.pathname : "#" + id);
+  show(id);
+}));
+function money(n) {
+  if (!isFinite(n)) return "unknown";
+  return (n < 0 ? "\u2212" : "") + "$" + Math.abs(n).toFixed(1) + "M";
+}
+function cls(n) { return !isFinite(n) ? "" : n < 0 ? "neg" : "pos"; }
+function renderExplain() {
+  document.getElementById("explain-list").innerHTML = Object.entries(META).sort((a,b)=>a[1].rank-b[1].rank).map(([id,m]) =>
+    "<article class=\"explain\" id=\"explain-"+id+"\"><h2>#"+m.rank+" \u2014 "+m.title+"</h2><p>"+m.explain+"</p><p class=\"note\">Theoretical P/L: "+m.pl+"</p></article>"
   ).join("");
-}).catch(() => {
-  document.getElementById("updated").textContent = "methods.json failed to load";
-});
+}
+function computeFlow(econ) {
+  const tpd=+document.getElementById("tpd").value;
+  const grade=+document.getElementById("grade").value;
+  const price=+document.getElementById("price").value;
+  const capex=+document.getElementById("capex").value;
+  const opex=+document.getElementById("opex").value;
+  const share=+document.getElementById("share").value;
+  const life=+document.getElementById("life").value;
+  const grants=+document.getElementById("grants").value;
+  const tpy=tpd*365;
+  const factor=(econ.assumptions&&econ.assumptions.oxide_factor&&econ.assumptions.oxide_factor.value)||1.148;
+  document.getElementById("pl-math").textContent=tpy.toLocaleString()+" t/yr × "+grade+" g/t Dy × "+factor+" oxide factor × recoveries → kg Dy2O3.";
+  document.getElementById("pl-rows").innerHTML=(econ.flowsheets||[]).slice().sort((a,b)=>a.rank-b.rank).map(fs=>{
+    if(fs.leach_recovery==null||fs.split_recovery==null){
+      return "<tr><td class=\"rank\">"+fs.rank+"</td><th>"+fs.name+"</th><td colspan=\"5\">unknown — recipe unpublished</td><td>"+fs.note+"</td></tr>";
+    }
+    const kg=tpy*grade*factor*fs.leach_recovery*fs.split_recovery/1000;
+    const rev=kg*price/1e6;
+    const dyOpex=tpy*opex*share/1e6*(fs.opex_factor||1);
+    const cap=Math.max(0, capex*(fs.capex_factor||1)-grants);
+    const pl=rev-dyOpex-(life>0?cap/life:0);
+    return "<tr><td class=\"rank\">"+fs.rank+"</td><th>"+fs.name+"</th><td>"+(kg/1000).toFixed(0)+"</td><td>"+money(rev)+"</td><td>"+money(dyOpex)+"</td><td>"+money(cap)+"</td><td class=\""+cls(pl)+"\">"+money(pl)+"</td><td>"+fs.note+"</td></tr>";
+  }).join("");
+}
+Promise.all([
+  fetch("methods.json").then(r=>r.json()),
+  fetch("economics.json").then(r=>r.json()).catch(()=>({flowsheets:[],grants:[],assumptions:{}}))
+]).then(([d,econ])=>{
+  document.getElementById("updated").textContent="updated "+d.updated+" \u00b7 "+d.deposit.host;
+  document.getElementById("rows").innerHTML=d.methods.slice().sort((a,b)=>(META[a.id]?.rank||99)-(META[b.id]?.rank||99)).map(m=>{
+    const meta=META[m.id]||{rank:"—",pl:m.cost||"unknown"};
+    return "<tr><td class=\"rank\">"+meta.rank+"</td><th>"+m.name+"</th><td>"+m.stage+"</td><td>"+m.fit_to_host+"</td><td>"+m.recovery+"</td><td>"+meta.pl+"</td><td><a class=\"explain-link\" href=\"#explain-"+m.id+"\" data-id=\""+m.id+"\">12th-grade</a></td><td>"+m.reagents+"</td><td>"+m.scale+"</td><td>"+m.cost+"</td></tr>";
+  }).join("");
+  document.querySelectorAll(".explain-link").forEach(a=>a.addEventListener("click",e=>{
+    e.preventDefault();
+    history.replaceState(null,"",a.getAttribute("href"));
+    show("explain");
+  }));
+  const cash=(econ.grants||[]).filter(g=>g.kind==="grant").reduce((s,g)=>s+g.usd_m,0);
+  if(cash) document.getElementById("grants").value=cash;
+  const A=econ.assumptions||{};
+  if(A.throughput_tpd) document.getElementById("tpd").value=A.throughput_tpd.value;
+  if(A.grade_dy_gt) document.getElementById("grade").value=A.grade_dy_gt.value;
+  if(A.heap_recovery) document.getElementById("heap").value=A.heap_recovery.value;
+  if(A.sx_recovery) document.getElementById("split").value=A.sx_recovery.value;
+  if(A.price_china_usd_per_kg) document.getElementById("price").value=A.price_china_usd_per_kg.value;
+  if(A.capex_m_usd) document.getElementById("capex").value=A.capex_m_usd.value;
+  if(A.opex_usd_per_t) document.getElementById("opex").value=A.opex_usd_per_t.value;
+  if(A.dy_opex_share) document.getElementById("share").value=A.dy_opex_share.value;
+  if(A.life_years) document.getElementById("life").value=A.life_years.value;
+  document.getElementById("grant-list").innerHTML="<h2>Applicable money (company-level)</h2><table><thead><tr><th>Source</th><th>$M</th><th>Kind</th><th>Tag</th><th>Applies to</th></tr></thead><tbody>"+(econ.grants||[]).map(g=>"<tr><td>"+g.name+"</td><td>"+g.usd_m+"</td><td>"+g.kind+"</td><td>"+g.tag+"</td><td>"+g.applies_to+"</td></tr>").join("")+"</tbody></table><p class=\"note\">"+(econ.disclaimer||"")+"</p>";
+  ["tpd","grade","heap","split","price","capex","opex","share","life","grants"].forEach(id=>document.getElementById(id).addEventListener("input",()=>computeFlow(econ)));
+  computeFlow(econ);
+  renderExplain();
+  if(location.hash.startsWith("#explain-")) show("explain");
+  if(location.hash==="#pl") show("pl");
+}).catch(()=>{ document.getElementById("updated").textContent="methods.json failed to load"; });
 </script>
 </html>
