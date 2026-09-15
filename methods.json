@@ -1,1 +1,24 @@
-see-local
+{
+  "updated": "2026-09-15",
+  "deposit": {
+    "name": "Round Top",
+    "county": "Hudspeth County, Texas",
+    "host": "yttrofluorite in peraluminous rhyolite",
+    "notes": "Low-grade, HREE-rich, acid-soluble fluorite; 90-95% inert quartz+feldspar."
+  },
+  "methods": [
+    {
+      "id": "h2so4-heap",
+      "name": "Dilute H2SO4 heap leach",
+      "stage": "liberation",
+      "fit_to_host": "high \u2014 yttrofluorite dissolves in dilute sulfuric at ambient T",
+      "recovery": "cited column/bucket: Y 61%, Dy 57.5% on 1/2\u2013in crush (US 9,890,441); many tests 42\u201349% Y+HREE; USAR slide: up to 70% REE in columns (split unpublished)",
+      "reagents": "H2SO4 5\u2013100 g/L tested; patent example ~8.3% v/v or 10 g/L bucket tests. Cited column acid consumption 22.3 kg/t at 35 g/L and 26.2 kg/t at 75 g/L after 60 days (US 9,890,441) \u2014 not a lined-heap guarantee.",
+      "energy": "low (ambient); crush + pumping of circulating liquor. kWh/t unpublished.",
+      "waste": "acidic raffinate; F from yttrofluorite + cryolite/gearksutite/ralstonite; U/Th from soluble accessories; gypsum if lime neutralize",
+      "scale": "the designed path for this mountain; heap is how you treat a billion-ton low-grade rhyolite",
+      "cost": "order-of-magnitude: heap opex dominated by acid make-up after recycle + neutralize + F/U/Th bleed; unknown without current PEA. Cited 22\u201326 kg acid/t is a column, not plant opex.",
+      "verdict": "baseline leach. Not a separator."
+    }
+  ]
+}
